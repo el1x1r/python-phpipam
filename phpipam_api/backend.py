@@ -57,5 +57,8 @@ class PhpipamBackend:
         if not 'success' in data or not data['success']:
             raise ApiQueryException("Query failed with code " + str(data['code']) + ": " + str(data['message']))
 
+        if not 'data' in data or not data['data']:
+            return data['id']
+
         return data['data']
 
